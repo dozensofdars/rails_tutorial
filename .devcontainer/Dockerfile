@@ -6,6 +6,7 @@ RUN apt-get update && \
       libpq-dev \
       postgresql-client \
       nodejs \
+      yarn \
       npm && \
     gem install \
       solargraph \
