@@ -1,0 +1,11 @@
+{
+  "name": "Rails",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "extensions": [
+    "rebornix.ruby",
+    "bung87.rails"
+  ]
+}
