@@ -19,10 +19,16 @@
 $ bundle install --without production
 ```
 
+次に、データベースを作成します。
+```
+$ rails db:create
+```
+
 その後、データベースへのマイグレーションを実行します。
 
 ```
 $ rails db:migrate
+$ rails db:migrate RAILS_ENV=test
 ```
 
 最後に、テストを実行してうまく動いているかどうか確認してください。
