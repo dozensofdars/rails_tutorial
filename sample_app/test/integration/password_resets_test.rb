@@ -58,7 +58,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_redirected_to user
     # 2回目のパスワード変更は無効
-    @user.reload
+    assert_nil @user.reload.reset_digest
     patch password_reset_path(user.reset_token),
           params: { email: user.email,
                     user: { password:              "foobazz",
