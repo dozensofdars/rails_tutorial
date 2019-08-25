@@ -25,3 +25,9 @@ services:
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=admin"
+    volumes:
+      - rails_tutorial_data:/var/lib/postgresql/data
+
+volumes: 
+  rails_tutorial_data:
+    external: true
