@@ -5,6 +5,12 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  # 現在のユーザーをログアウトする
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
   # @return [User] ログイン中のユーザー
   # @return [NilClass] 未ログイン
   def current_user
