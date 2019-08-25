@@ -1,4 +1,8 @@
 class PasswordResetsController < ApplicationController
+  def index
+    redirect_to new_password_reset_path
+  end
+
   def new
   end
 
