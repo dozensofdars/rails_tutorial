@@ -30,3 +30,10 @@ Faker::Config.locale = :ja
     activated_at: Time.zone.now
   )
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  users.each do |user|
+    user.microposts.create!(content: Faker::Lorem.sentence(word_count: 5))
+  end
+end
