@@ -73,6 +73,11 @@ class User < ApplicationRecord
     update_columns(activated: true, activated_at: Time.zone.now)
   end
 
+  # フィード
+  def feed
+    Micropost.where(user_id: id)
+  end
+
   # 渡された文字列のハッシュ値を返す
   # @param string [String] 文字列
   # @return 渡された文字列のハッシュ値
