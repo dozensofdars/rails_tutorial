@@ -6,6 +6,7 @@
   "shutdownAction": "stopCompose",
   "extensions": [
     "rebornix.ruby",
+    "kaiwood.endwise",
     "bung87.rails"
   ]
 }
