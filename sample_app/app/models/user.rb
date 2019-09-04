@@ -83,6 +83,26 @@ class User < ApplicationRecord
     Micropost.where(user_id: id)
   end
 
+  # ユーザーをフォローする
+  # @param other_user [User] フォローするユーザー
+  def follow(other_user)
+    following << other_user
+  end
+
+  # ユーザーをフォロー解除する
+  # @param other_user [User] フォロー解除するユーザー
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  
+  # ユーザーをフォローしているか調べる
+  # @param other_user [User] 調べるユーザー
+  # @return [Boolean] フォローしていたらtrue
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
   # 渡された文字列のハッシュ値を返す
   # @param string [String] 文字列
   # @return 渡された文字列のハッシュ値
