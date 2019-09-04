@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# ユーザー
 User.create!(
   name:  "Example User",
   email: "example@railstutorial.org",
@@ -31,9 +32,18 @@ Faker::Config.locale = :ja
   )
 end
 
+# マイクロポスト
 users = User.order(:created_at).take(6)
 50.times do
   users.each do |user|
     user.microposts.create!(content: Faker::Lorem.sentence(word_count: 5))
   end
 end
+
+# リレーションシップ
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
