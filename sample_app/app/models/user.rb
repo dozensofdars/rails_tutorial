@@ -85,7 +85,9 @@ class User < ApplicationRecord
 
   # フィード
   def feed
-    Micropost.where(user_id: id)
+    Micropost
+      .where(user_id: Relationship.where(follower_id: id).select(:followed_id))
+      .or(Micropost.where(user_id: id))
   end
 
   # ユーザーをフォローする
