@@ -5,7 +5,8 @@ const webpack = require('webpack')
 environment.plugins.append(
   'Provide',
   new webpack.ProvidePlugin({
-    jQuery: "jquery"
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery'
   })
 )
 
